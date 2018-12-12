@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RroleApp.Areas.GuideArea.Models.Guide>
+
+@{
+    ViewBag.Title = "Hero Guide";
+}
+
+<h2>Hero Guide</h2>
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="/GuideArea/Home/Details?id=@item.GuideId">
+                    @Html.DisplayFor(modelItem => item.GuideName)
+                </a>
+            </td>
+            <td>
+                @Html.ActionLink("Add Comment", "Create", new { area = "CommentsArea", controller = "Comment" })
+            </td>
+
+            @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.GuideId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GuideId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GuideId })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

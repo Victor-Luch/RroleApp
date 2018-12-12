@@ -1,0 +1,12 @@
+﻿body {
+    background-image: url(../Content/Images/ultimativnyj-sapport-osnovnye-izmenenija-patcha-7-07-dlja-dota-2_1509467327360192823.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+    text-align: center;
+    letter-spacing: 1px;
+}

@@ -1,0 +1,50 @@
+﻿
+.conteiner{
+    position:relative;
+    padding-left: 0;
+}
+.top{
+    display:block;
+    width: 390px;
+    height:267px;
+    border-radius: 10px;
+    margin-top:20px;
+}
+.text{
+    position:absolute;
+    bottom:100%;
+    left:0;
+    right:0;
+    overflow:hidden;
+    width:100%;
+    height:0;
+    transition: .5s ease;
+    z-index: 100;
+}
+.conteiner:hover .text{
+    bottom:0;
+    height:100%;
+}
+.text_1{
+    width:100%;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+    
+}
+.demo_img{
+    padding-left:0;
+}
+.text_1 >a {
+    float: right;
+    color:red;
+}
+.container > h2 {
+    text-align: center;
+    letter-spacing: 2px;
+}
+

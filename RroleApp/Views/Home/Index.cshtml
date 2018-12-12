@@ -1,0 +1,76 @@
+﻿@model IEnumerable<RroleApp.Models.ApplicationUser>
+
+@{
+}
+<link rel="stylesheet" href="~/Content/HomePageStyle.css" />
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Hello users</h2>
+        <p>
+            It is a long established fact that a reader will be distracted by the readable content of a page
+            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            Many desktop publishing packages and web page editors
+            now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years,
+            sometimes by accident, sometimes on purpose (injected humour and the like).
+        </p>
+    </div>
+    <div class="col-md-4 conteiner">
+        <div class="text">
+            <div class="text_1">
+                <h2>You can watch unique heroes.</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a href="http://localhost:64657/Hero/Hero/Index"><p>Hero list</p></a>
+            </div>
+        </div>
+        <div class="col-md-4 demo_img">
+            <img class="top" src="~/Content/Images/ultimativnyj-sapport-osnovnye-izmenenija-patcha-7-07-dlja-dota-2_1509467327360192823.jpg" />
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>And create your own guide</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://localhost:64657/GuideArea/Home/Create">Create &raquo;</a></p>
+    </div>
+</div>
+<div class="container">
+    <h2 class="user_list">List of registere Users</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+

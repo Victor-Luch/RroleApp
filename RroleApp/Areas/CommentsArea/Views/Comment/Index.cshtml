@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RroleApp.Areas.CommentsArea.Models.CommentModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Comments</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentText)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.ApplicationUsers.UserName)</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUsers.UserName)
+        </td>
+        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CommentModelId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CommentModelId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CommentModelId })
+            </td>
+        }
+
+
+    </tr>
+}
+
+</table>

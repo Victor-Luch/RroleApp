@@ -1,0 +1,45 @@
+﻿@model RroleApp.Areas.GuideArea.Models.Guide
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Guide</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HeroGuid.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeroGuid.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuideName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuideName)
+        </dd>
+
+
+        <dt>
+            Recomend Items
+        </dt>
+        @foreach (var b in Model.ItemG)
+        {
+            <dd>
+                @b.ItemName
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GuideId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

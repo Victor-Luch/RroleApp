@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home Page", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("Some Guides", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        <ul class="submenu">
+                            <li>@Html.ActionLink("All Heroes", "Index", new { area = "Hero", controller = "Hero" })</li>
+                            <li>@Html.ActionLink("Items", "Index", new { area = "ItemArea", controller = "Item" })</li>
+                            <li>@Html.ActionLink("Heroes Guide", "Index", new { area = "GuideArea", controller = "Home" })</li>
+                            <li>@Html.ActionLink("Add your own Guide", "Create", new { area = "GuideArea", controller = "Home" })</li>
+
+                        </ul>
+                    </li>
+                    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Role", "Index", "Role", new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("Admin Page", "Index", new { area = "AdminArea" }, new { @class = "navbar-brand" })</li>
+                    }
+                    <li>@Html.ActionLink("Items", "Index", new { area = "ItemArea", controller = "Item" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Heroes", "Index", new { area = "Hero", controller = "Hero" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("User Page", "Index", new { area = "UserArea", controller = "Home" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("ForAll", "Index", new { area = "ForAllArea", controller = "Home" }, new { @class = "navbar-brand" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
